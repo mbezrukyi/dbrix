@@ -1,0 +1,12 @@
+# Python environment
+env/
+
+# Cache
+__pycache__
+
+# Build
+dist/
+*.egg-info
+
+# Configs
+*.ini
