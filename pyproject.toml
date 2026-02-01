@@ -1,0 +1,26 @@
+[build-system]
+requires = ['setuptools', 'setuptools-scm']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'qau'
+version = '0.1'
+authors = [
+    { name = 'Mykola Bezrukyi', email = 'kolya.bezrukiy.03@gmail.com' },
+]
+description = 'QA Databricks Utils'
+readme = 'README.md'
+requires-python = '>=3.10'
+license = 'MIT'
+license-files = [
+    'LICENSE',
+]
+dependencies = [
+    'confluent-kafka[avro,schemaregistry]',
+    'paramiko',
+]
+
+[tool.setuptools.packages.find]
+where = [
+    'src',
+]
