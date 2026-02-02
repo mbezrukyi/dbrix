@@ -1,11 +1,9 @@
-from .common import Env
 from .config import RegistryConfig, KafkaConfig
-from .loader import Loader
+from .loader import ConfigLoader
+
 
 __all__ = [
-    'Env',
     'RegistryConfig',
     'KafkaConfig',
-    'Loader',
+    'ConfigLoader',
 ]
-

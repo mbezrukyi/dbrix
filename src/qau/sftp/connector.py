@@ -1,11 +1,11 @@
 import paramiko
 import paramiko.sftp_client
 
-from .config import Config
+from .config import SFTPConfig
 
 
-class Connector:
-    def __init__(self, config: Config):
+class SFTPConnector:
+    def __init__(self, config: SFTPConfig):
         self._config = config
         self._client = paramiko.SSHClient()
         self._sftp = None
@@ -26,4 +26,3 @@ class Connector:
     def __exit__(self, exc_type, exc_value, exc_traceback):
         self._sftp.close()
         self._client.close()
-

@@ -1,14 +1,14 @@
 from .orchestrator import KafkaSink, KafkaSource
-from .parser import Avro, Common
-from .reader import Reader
-from .writer import Writer
+from .parser import AvroKafkaParser, CommonKafkaParser
+from .reader import KafkaReader
+from .writer import KafkaWriter
+
 
 __all__ = [
-    'Avro',
-    'Common',
+    'AvroKafkaParser',
+    'CommonKafkaParser',
     'KafkaSink',
     'KafkaSource',
-    'Reader',
-    'Writer',
+    'KafkaReader',
+    'KafkaWriter',
 ]
-

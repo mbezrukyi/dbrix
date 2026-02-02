@@ -1,8 +1,8 @@
-from .rd import Parser
-from .resolver import Resolver
+from .parser import ReservationsParser
+from .resolver import SchemaResolver
+
 
 __all__ = [
-    'Parser',
-    'Resolver',
+    'ReservationsParser',
+    'SchemaResolver',
 ]
-

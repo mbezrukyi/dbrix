@@ -1,7 +1,7 @@
 from pyspark.sql import DataFrame, functions as F
 
 
-class Helper:
+class ReservationsHelper:
     COLUMN = 'schema_id'
 
     @classmethod
@@ -25,4 +25,3 @@ class Helper:
                 .collect()
             )
         )
-

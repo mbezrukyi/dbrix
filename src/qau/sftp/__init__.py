@@ -1,10 +1,10 @@
-from .config import Config
-from .connector import Connector
+from .config import SFTPConfig
+from .connector import SFTPConnector
 from .sftp import SFTP
 
+
 __all__ = [
-    'Config',
-    'Connector',
+    'SFTPConfig',
+    'SFTPConnector',
     'SFTP',
 ]
-

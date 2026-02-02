@@ -1,6 +1,16 @@
-from typing import ClassVar
+from typing import Any, ClassVar, Protocol, TypeVar
 
 from confluent_kafka.schema_registry import SchemaRegistryClient
+
+
+T = TypeVar('T', bound='Config')
+
+
+class Config(Protocol):
+    FILE: ClassVar[str]
+
+    def __init__(self, **kwargs: Any):
+        ...
 
 
 class KafkaConfig:

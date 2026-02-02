@@ -3,7 +3,7 @@ from typing import Iterable
 from confluent_kafka.schema_registry import SchemaRegistryClient
 
 
-class Resolver:
+class SchemaResolver:
     def __init__(self, registry: SchemaRegistryClient):
         self._registry = registry
 

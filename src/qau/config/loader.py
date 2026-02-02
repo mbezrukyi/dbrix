@@ -1,9 +1,10 @@
 import configparser
 
-from .common import Env, Path, T
+from .config import T
+from ..common import Env, Path
 
 
-class Loader:
+class ConfigLoader:
     def __init__(self, env: Env):
         self.env = env
 
@@ -13,4 +14,3 @@ class Loader:
         parser.read(Path.build(self.env, config.FILE))
 
         return config(**parser[self.env.value])
-

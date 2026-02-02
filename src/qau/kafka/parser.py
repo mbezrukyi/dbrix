@@ -4,7 +4,7 @@ from pyspark.sql import DataFrame, functions as F
 from pyspark.sql.avro.functions import from_avro, to_avro
 
 
-class Parser(Protocol):
+class KafkaParser(Protocol):
     def to(self, df: DataFrame) -> DataFrame:
         ...
 
@@ -12,7 +12,7 @@ class Parser(Protocol):
         ...
 
 
-class Common:
+class CommonKafkaParser:
     def to(self, df: DataFrame) -> DataFrame:
         return df.withColumn('value', F.encode(F.col('value'), 'utf-8'))
 
@@ -20,7 +20,7 @@ class Common:
         return df.withColumn('value', F.decode(F.col('value'), 'utf-8'))
 
 
-class Avro:
+class AvroKafkaParser:
     def __init__(self, schema: str):
         self._schema = schema
 

@@ -1,10 +1,10 @@
 from pyspark.sql import DataFrame, SparkSession
 
-from .config import Config
+from .config import JDBCConfig
 
 
-class JDBC:
-    def __init__(self, config: Config):
+class JDBCReader:
+    def __init__(self, config: JDBCConfig):
         self._config = config
 
     def extract(self, table: str) -> DataFrame:
@@ -21,4 +21,3 @@ class JDBC:
                 }
             )
         )
-

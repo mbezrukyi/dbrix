@@ -1,8 +1,7 @@
-from .config import Config
-from .jdbc import JDBC
+from .config import JDBCConfig
+from .reader import JDBCReader
 
 __all__ = [
-    'Config',
-    'JDBC',
+    'JDBCConfig',
+    'JDBCReader',
 ]
-

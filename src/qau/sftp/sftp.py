@@ -1,8 +1,8 @@
-from .connector import Connector
+from .connector import SFTPConnector
 
 
 class SFTP:
-    def __init__(self, connector: Connector):
+    def __init__(self, connector: SFTPConnector):
         self._connector = connector
 
     def extract(self, path: str) -> list[str]:
@@ -29,4 +29,3 @@ class SFTP:
     def move(self, old: str, new: str) -> None:
         with self._connector as sftp:
             sftp.rename(old, new)
-

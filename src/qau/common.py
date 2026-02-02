@@ -1,23 +1,13 @@
 from enum import Enum
-from typing import Any, ClassVar, Protocol, TypeVar
+from typing import Protocol
 
-from pyspark.sql import SparkSession
-
-
-T = TypeVar('T', bound='Config')
+from pyspark.sql import DataFrame, SparkSession
 
 
 class Env(Enum):
     DEV = 'tst'
     PROD = 'prd'
     QA = 'stg'
-
-
-class Config(Protocol):
-    FILE: ClassVar[str]
-
-    def __init__(self, **kwargs: Any):
-        ...
 
 
 class Path:
@@ -31,3 +21,7 @@ class Path:
             file=file,
         )
 
+
+class Reader(Protocol):
+    def read(self) -> DataFrame:
+        ...
