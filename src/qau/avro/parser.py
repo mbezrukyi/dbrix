@@ -3,11 +3,11 @@ import functools
 from pyspark.sql import DataFrame, functions as F
 from pyspark.sql.avro import functions as AF
 
-from .helper import ReservationsHelper
+from .helper import Helper
 from .resolver import SchemaResolver
 
 
-class ReservationsParser:
+class Parser:
     def __init__(
         self,
         df: DataFrame,
@@ -20,7 +20,7 @@ class ReservationsParser:
         return functools.reduce(
             lambda df1, df2: df1.unionByName(df2, allowMissingColumns=True),
             (
-                ReservationsHelper.enhanced(self._df)
+                Helper.enhanced(self._df)
                 .filter(F.col('schema_id') == schema_id)
                 .withColumn(
                     "value",
@@ -31,6 +31,6 @@ class ReservationsParser:
                     )
                 )
                 .select('value.*', '*')
-                for schema_id, schema_str in self._resolver.resolve(ReservationsHelper.schemas(self._df)).items()
+                for schema_id, schema_str in self._resolver.resolve(Helper.schemas(self._df)).items()
             )
         )

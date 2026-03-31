@@ -1,7 +1,7 @@
 from pyspark.sql import DataFrame, functions as F
 
 
-class ReservationsHelper:
+class Helper:
     COLUMN = 'schema_id'
 
     @classmethod

@@ -1,8 +1,8 @@
-from .parser import ReservationsParser
+from .parser import Parser
 from .resolver import SchemaResolver
 
 
 __all__ = [
-    'ReservationsParser',
+    'Parser',
     'SchemaResolver',
 ]
