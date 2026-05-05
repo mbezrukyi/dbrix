@@ -1,14 +1,18 @@
-from typing import Iterable
-
 from confluent_kafka.schema_registry import SchemaRegistryClient
+
+from ..config import RegistryConfig
+
+
+def build_registry(config: RegistryConfig) -> SchemaRegistryClient:
+    return SchemaRegistryClient({
+        'url': config.url,
+        'basic.auth.user.info': config.auth,
+    })
 
 
 class SchemaResolver:
     def __init__(self, registry: SchemaRegistryClient):
         self._registry = registry
 
-    def resolve(self, schemas: Iterable[str]) -> dict[str, str]:
-        return {
-            schema_id: self._registry.get_schema(schema_id).schema_str
-            for schema_id in schemas
-        }
+    def resolve(self, schema_id: str) -> str:
+        return self._registry.get_schema(int(schema_id)).schema_str

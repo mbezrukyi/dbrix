@@ -1,7 +1,5 @@
 from typing import Any, ClassVar, Protocol, TypeVar
 
-from confluent_kafka.schema_registry import SchemaRegistryClient
-
 
 T = TypeVar('T', bound='Config')
 
@@ -37,9 +35,3 @@ class RegistryConfig:
     def __init__(self, url: str, auth: str):
         self.url = url
         self.auth = auth
-
-    def create(self) -> SchemaRegistryClient:
-        return SchemaRegistryClient({
-            'url': self.url,
-            'basic.auth.user.info': self.auth,
-        })

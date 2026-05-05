@@ -16,7 +16,7 @@ license-files = [
     'LICENSE',
 ]
 dependencies = [
-    'confluent-kafka[avro,schemaregistry]',
+    'confluent-kafka[schemaregistry]',
     'paramiko',
 ]
 

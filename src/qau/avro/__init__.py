@@ -1,8 +1,10 @@
-from .parser import Parser
-from .resolver import SchemaResolver
+from .parser import KeyParser, ValueParser
+from .resolver import build_registry, SchemaResolver
 
 
 __all__ = [
-    'Parser',
+    'build_registry',
+    'KeyParser',
     'SchemaResolver',
+    'ValueParser',
 ]
