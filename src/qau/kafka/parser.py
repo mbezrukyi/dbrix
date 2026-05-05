@@ -21,14 +21,15 @@ class CommonKafkaParser:
 
 
 class AvroKafkaParser:
-    def __init__(self, schema: str):
+    def __init__(self, schema: str, schema_id: int):
         self._schema = schema
+        self._schema_id = schema_id
 
-    def to(self, df: DataFrame, schema_id: int) -> DataFrame:
+    def to(self, df: DataFrame) -> DataFrame:
         return (
             df
             .withColumn('value', to_avro(F.col('value'), self._schema))
-            .withColumn('value', F.expr(f'concat(unhex("{hex(schema_id).split("x")[1].zfill(10)}"), value)'))
+            .withColumn('value', F.expr(f'concat(unhex("00{self._schema_id:08x}"), value)'))
         )
 
     def from_(self, df: DataFrame) -> DataFrame:

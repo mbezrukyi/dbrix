@@ -5,11 +5,11 @@ class SFTP:
     def __init__(self, connector: SFTPConnector):
         self._connector = connector
 
-    def extract(self, path: str) -> list[str]:
+    def list_(self, path: str) -> list[str]:
         with self._connector as sftp:
             return sftp.listdir(path)
 
-    def read(self, path: str) -> str:
+    def read(self, path: str) -> list[str]:
         with self._connector as sftp:
             with sftp.open(path) as file:
                 return file.readlines()

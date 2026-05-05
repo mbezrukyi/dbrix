@@ -7,7 +7,7 @@ class JDBCReader:
     def __init__(self, config: JDBCConfig):
         self._config = config
 
-    def extract(self, table: str) -> DataFrame:
+    def read(self, table: str) -> DataFrame:
         return (
             SparkSession.builder.getOrCreate()
             .read

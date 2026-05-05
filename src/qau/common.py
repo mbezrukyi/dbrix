@@ -1,7 +1,6 @@
 from enum import Enum
-from typing import Protocol
 
-from pyspark.sql import DataFrame, SparkSession
+from pyspark.sql import SparkSession
 
 
 class Env(Enum):
@@ -20,8 +19,3 @@ class Path:
             mount=f'{env.value}-configuration-realtime',
             file=file,
         )
-
-
-class Reader(Protocol):
-    def read(self) -> DataFrame:
-        ...
