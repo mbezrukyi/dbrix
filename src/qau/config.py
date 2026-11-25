@@ -5,15 +5,6 @@ from databricks.sdk import WorkspaceClient
 
 
 @dataclass
-class KafkaConfig:
-    bootstrap: str
-    jaas: str
-    starting_offsets: str
-    security_protocol: str
-    sasl_mechanism: str
-
-
-@dataclass
 class RegistryConfig:
     url: str
     auth: str
