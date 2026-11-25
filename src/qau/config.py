@@ -1,13 +1,6 @@
 import dataclasses
-from dataclasses import dataclass
 
 from databricks.sdk import WorkspaceClient
-
-
-@dataclass
-class RegistryConfig:
-    url: str
-    auth: str
 
 
 def load[Config](config: type[Config], scope: str) -> Config:
