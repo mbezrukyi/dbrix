@@ -3,7 +3,7 @@ build-backend = "uv_build"
 requires = [ "uv-build>=0.13,<0.14" ]
 
 [project]
-name = "qau"
+name = "dbrix"
 version = "0.2.0"
 description = "PySpark helpers for Databricks"
 readme = "README.md"

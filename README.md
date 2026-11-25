@@ -1,4 +1,4 @@
-# qau
+# dbrix
 
 PySpark helpers for Databricks: Kafka, Avro, JDBC, SFTP and CSV.
 
@@ -7,12 +7,12 @@ PySpark helpers for Databricks: Kafka, Avro, JDBC, SFTP and CSV.
 - Python 3.12+
 - Databricks Runtime 16+ or serverless environment 3+
 
-Spark comes from the runtime, so qau does not install it.
+Spark comes from the runtime, so dbrix does not install it.
 
 ## Install
 
 ```
-%pip install git+https://github.com/mbezrukyi/qau
+%pip install git+https://github.com/mbezrukyi/dbrix
 ```
 
 ## Secrets
@@ -34,7 +34,7 @@ databricks secrets put-secret dev-kafka bootstrap --string-value broker:9092
 ## Usage
 
 ```python
-from qau import avro, config, csv, frames, jdbc, kafka, sftp
+from dbrix import avro, config, csv, frames, jdbc, kafka, sftp
 ```
 
 Load a config from its scope, or build it by hand:
