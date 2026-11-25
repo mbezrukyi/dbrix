@@ -1,26 +1,18 @@
 [build-system]
-requires = ['setuptools', 'setuptools-scm']
-build-backend = 'setuptools.build_meta'
+build-backend = "uv_build"
+requires = [ "uv-build>=0.13,<0.14" ]
 
 [project]
-name = 'qau'
-version = '0.1'
-authors = [
-    { name = 'Mykola Bezrukyi', email = 'kolya.bezrukiy.03@gmail.com' },
-]
-description = 'QA Databricks Utils'
-readme = 'README.md'
-requires-python = '>=3.10'
-license = 'MIT'
-license-files = [
-    'LICENSE',
-]
+name = "qau"
+version = "0.2.0"
+description = "PySpark helpers for Databricks"
+readme = "README.md"
+license = "MIT"
+license-files = [ "LICENSE" ]
+authors = [ { name = "Mykola Bezrukyi" } ]
+requires-python = ">=3.12"
 dependencies = [
-    'confluent-kafka[schemaregistry]',
-    'paramiko',
-]
-
-[tool.setuptools.packages.find]
-where = [
-    'src',
+  "confluent-kafka[schemaregistry]",
+  "databricks-sdk",
+  "paramiko",
 ]

@@ -1,9 +1,3 @@
-# Python environment
-env/
-
-# Cache
-__pycache__
-
-# Build
+.venv/
+__pycache__/
 dist/
-*.egg-info
